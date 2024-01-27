@@ -1,28 +1,28 @@
 ################ Tip Calculator ######################
 
-print("Welcome To Bhim's Tip Calculator\n")
+# Printing a welcome message
+print("Welcome to Bhim's tip calculator!\n")
 
-Total_Bill = float(input("What was the total Bill? : $"))
+# Getting user input for the total bill, tip percentage, and number of people
+Bill = float(input("What was the total bill? : $"))
+Tip = int(input("How much tip would you like to give? : %"))
+People = int(input("How many people to split the bill? :"))
 
-Tip_Percentage = int(input("What percentages tip would you like to give? : %"))
+# Calculating the tip amount as a percentage of the total bill
+Tip_as_Percent = Tip / 100
+Total_bill_Amount = Bill * Tip_as_Percent
 
-Total_People = int(input("How many people to split the Bill? : "))
+# Calculating the total bill including the tip
+Total_Bill = Bill + Total_bill_Amount
 
-''' 
-############### This is the Multi-Line Comments ################
+# Calculating the amount each person should pay
+Bill_per_Person = Total_Bill / People
 
-# Formula for percentage calculation :
-# (Value / Total Value) * 100 %
-# For Example :
+# Using Rounding function for the final amount to two decimal places
+#Final_Amount = round(Bill_per_Person, 2) #it's not working for final amount as a string with two decimal places.
 
-Find 15% of 500
+# That's why using Formatting function the final amount as a string with two decimal places
+Final_Amount = "{:.2f}".format(Bill_per_Person)
 
-(15*100) / 500
-
-'''
-
-a = (Tip_Percentage * 100) / Total_Bill
-
-Splited_Bill = a / Total_People
-
-print("Each person should pay : $", Splited_Bill)
+# Displaying the result
+print(f"Each person should pay : ${Final_Amount} ")
